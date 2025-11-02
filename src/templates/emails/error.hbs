@@ -1,0 +1,25 @@
+{{#> layout}}
+  {{#*inline "content"}}
+    <h2>Report Generation Failed</h2>
+    
+    <p>We're sorry, but we encountered an issue while generating your {{reportType}} report.</p>
+
+    <div style="background: #f8d7da; border: 1px solid #f5c6cb; padding: 15px; border-radius: 5px; margin: 20px 0;">
+      <p style="margin: 0; color: #721c24;"><strong>Error:</strong> {{error}}</p>
+    </div>
+
+    <p>Our technical team has been notified and is working to resolve the issue.</p>
+    
+    <p>Please try again in a few moments, or contact support if the problem persists.</p>
+
+    <div style="text-align: center;">
+      <a href="https://yourapp.com/support" class="button" style="background: #dc3545;">
+        Contact Support
+      </a>
+    </div>
+
+    <p>We apologize for any inconvenience.</p>
+    
+    <p>Best regards,<br>The Technical Team</p>
+  {{/inline}}
+{{/layout}}

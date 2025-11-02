@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { 
+      font-family: 'DejaVu Sans', Arial, sans-serif; 
+      margin: 40px; 
+      color: #333;
+      font-size: 14px;
+    }
+    .header { 
+      text-align: center; 
+      margin-bottom: 40px;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 20px;
+    }
+    .header h1 {
+      color: #667eea;
+      margin: 0;
+      font-size: 28px;
+    }
+    .invoice-info {
+      display: flex;
+      justify-content: space-between;
+      margin: 30px 0;
+    }
+    .from, .to {
+      flex: 1;
+    }
+    .to {
+      text-align: right;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #f8f9fa;
+      font-weight: bold;
+    }
+    .total-row {
+      background-color: #f8f9fa;
+      font-weight: bold;
+    }
+    .summary {
+      margin-top: 30px;
+      text-align: right;
+    }
+    .thank-you {
+      text-align: center;
+      margin-top: 50px;
+      color: #6c757d;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>INVOICE</h1>
+    <p>Invoice #: {{data.invoiceNumber}}</p>
+    <p>Date: {{formatDate generatedAt}}</p>
+  </div>
+
+  <div class="invoice-info">
+    <div class="from">
+      <strong>From:</strong><br>
+      My Awesome Company<br>
+      123 Business Street<br>
+      City, State 12345<br>
+      contact@example.com
+    </div>
+    <div class="to">
+      <strong>To:</strong><br>
+      {{user.name}}<br>
+      {{user.email}}
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each data.items}}
+      <tr>
+        <td>{{description}}</td>
+        <td>{{quantity}}</td>
+        <td>{{currency unitPrice}}</td>
+        <td>{{currency total}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+    <tfoot>
+      <tr class="total-row">
+        <td colspan="3" style="text-align: right;"><strong>Grand Total:</strong></td>
+        <td><strong>{{currency data.grandTotal}}</strong></td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div class="summary">
+    <p><strong>Payment Terms:</strong> Net 30</p>
+    <p><strong>Due Date:</strong> {{formatDate data.dueDate}}</p>
+  </div>
+
+  <div class="thank-you">
+    <p>Thank you for your business!</p>
+  </div>
+</body>
+</html>
