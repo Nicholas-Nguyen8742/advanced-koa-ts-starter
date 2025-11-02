@@ -20,7 +20,7 @@ export class ReportWorker extends BaseWorker<ReportJobData> {
     this.emailService = new EmailService();
   }
 
-  async process(job: Job<ReportJobData>): Promise<void> {
+  async process(job: Job<ReportJobData>): Promise<{ generated: boolean; emailed: boolean; size: number; }> {
     const { templateName, data, emailTo, subject } = job.data;
     
     console.log(`📊 Generating ${templateName} report`);

@@ -29,7 +29,7 @@ export class EmailService {
     this.templateEngine = new TemplateEngine('./src/templates/emails');
     this.initializeTemplates();
 
-    this.transporter = nodemailer.createTransporter({
+    this.transporter = nodemailer.createTransport({
       host: config.email.smtp.host,
       port: config.email.smtp.port,
       secure: false,
@@ -65,7 +65,6 @@ export class EmailService {
     await emailQueue.add('send-email', emailData, {
       delay: 5000, // optional delay
       attempts: 3,
-      backoff: 'exponential'
     });
   }
 
