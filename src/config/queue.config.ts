@@ -1,6 +1,6 @@
 import { Queue, Worker, QueueEvents } from 'bullmq';
 import IORedis from 'ioredis';
-import { config } from '.';
+import config from '.';
 
 export const connection = new IORedis(config.redis.url);
 

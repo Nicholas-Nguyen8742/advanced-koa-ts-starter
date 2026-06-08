@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 import { TemplateEngine } from '../utils/template.engine';
-import { config } from '../config';
+import config from '../config';
 import { emailQueue } from '../config/queue.config';
 
 export interface EmailData {

@@ -2,7 +2,7 @@ import Koa from 'koa';
 import Router from 'koa-router';
 import bodyParser from 'koa-bodyparser';
 import compress from 'koa-compress';
-import { config } from './config';
+import config from './config';
 import { errorHandler } from './api/middleware/error.handler';
 import { loggerMiddleware } from './api/middleware/logger';
 import { authMiddleware } from './api/middleware/auth';

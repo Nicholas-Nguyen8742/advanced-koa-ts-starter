@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { config } from './config';
+import config from './config';
 import { App } from './app';
 
 // Create and start the application
